@@ -9,7 +9,7 @@ export const useUsers = (enabled = true) => {
     queryKey: USERS_QUERY_KEY,
     queryFn: () => apiClient.users.getAll(),
     enabled,
-    staleTime: 30 * 1000, // 30 seconds
+    staleTime: 30 * 1000,
     retry: 2,
   });
 };
@@ -22,6 +22,9 @@ export const useCreateUser = () => {
     onSuccess: () => {
       // Invalidate and refetch users after creating a new one
       queryClient.invalidateQueries({ queryKey: USERS_QUERY_KEY });
+    },
+    onError: (error) => {
+      console.error('Failed to create user:', error);
     },
   });
 };

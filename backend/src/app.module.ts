@@ -4,7 +4,6 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UserModule } from './user/user.module';
 import { User } from './entities/user.entity';
-import { DatabaseSeedService } from './database/database-seed.service';
 
 @Module({
   imports: [
@@ -22,6 +21,6 @@ import { DatabaseSeedService } from './database/database-seed.service';
     UserModule,
   ],
   controllers: [AppController],
-  providers: [AppService, DatabaseSeedService],
+  providers: [AppService],
 })
 export class AppModule {}

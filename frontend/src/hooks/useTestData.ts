@@ -6,7 +6,7 @@ export const useTestData = () => {
   return useQuery<TestData>({
     queryKey: ['test'],
     queryFn: () => apiClient.test.getTestData(),
-    staleTime: 60 * 1000, // 1 minute
+    staleTime: 60 * 1000,
     retry: 2,
   });
 };
